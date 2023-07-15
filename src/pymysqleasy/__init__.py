@@ -1,0 +1,1 @@
+from .MysqlDB import baseDB as MysqlEasy

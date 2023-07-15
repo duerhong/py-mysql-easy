@@ -3,8 +3,8 @@ import setuptools
 with open("README.md", "r", encoding="utf-8") as fh:
     long_description = fh.read()
 setuptools.setup(
-    name="pysucculent",
-    version="1.0.0",
+    name="pymysqleasy",
+    version="1.0.1",
     author="duer",
     author_email="1186969412@qq.com",
     description="mysql crud exends",

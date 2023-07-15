@@ -71,7 +71,7 @@ class baseDB:
                 where = "%s and `%s` %s '%s'" % (where,
                                                  escape_string(item),
                                                  escape_string(condition[item][0]),
-                                                 escape_string(condition[item][1]))
+                                                 escape_string(str(condition[item][1])))
         return where
 
     @staticmethod
@@ -177,7 +177,7 @@ class baseDB:
     def insert(self, table_name, data):
         keys = data.keys()
         values = data.values()
-        values = ['%s' % row for row in values]
+        values = [escape_string('%s' % row) for row in values]
         key_str = "`%s`" % "`,`".join(keys)
         value_str = "'%s'" % "','".join(values)
         sql = "insert into `%s` (%s) value(%s)" % (table_name, key_str, value_str)
@@ -187,7 +187,7 @@ class baseDB:
     def update(self, table_name, data, condition):
         sql = "update %s set " % table_name
         for item in data:
-            sql = "%s `%s`='%s'," % (sql, item, data[item])
+            sql = "%s `%s`='%s'," % (sql, item, escape_string(data[item]))
         sql = sql.strip(",")
         if condition:
             sql = sql + self.standard_condition(condition)
