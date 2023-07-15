@@ -1,10 +1,3 @@
-# Install 
-```commandline
-pip install pymysqleasy
-```
-
-# Demo
-```
 from pymysqleasy import MysqlEasy
 
 """
@@ -96,5 +89,3 @@ exex(sql)
 
 group_total(table_name, fields, condition)
 """
-```
-
